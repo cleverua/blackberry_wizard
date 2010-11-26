@@ -1,0 +1,38 @@
+== DESCRIPTION
+
+This sample Blackberry application demonstrates an approach for Wizard Type Screen that allows to edit information in convinient way, page by page.
+
+== USAGE
+
+=== Wizard Screen needs some pages to go through. Class that represents a page must implement an IPage interface.
+
+* public Field getContent(); - return the Field to represent the page.
+* public boolean isValid(); - perform the validation of the page and return result.
+* public void onPageValid(); - perform some actions if page is valid.
+* public void onPageInvalid(); - perform some actions if page is invalid. Show an error message, for example.  
+  
+
+=== Pass the array of pages in Wizard Screen constructor. Each time Wizard appears on the scrren it shows the first page. 
+
+=== User may fill or browse pages. Validation of the current page will be performed each time before user goes to the next page.
+
+=== Wizard notifies a change event with context WizardScreen.WIZARD_OK if OK button pressed and WizardScree.WIZARD_CANCEL after Cancel button. So you may perform some actions after data has been filled.
+
+  private FieldChangeListener wizardListener = new FieldChangeListener() {
+      public void fieldChanged(Field field, int context) {
+          if (context == WizardScreen.WIZARD_OK) {
+              // do something ...
+          }
+      }
+  };
+
+  ....
+
+  WizardScreen wizard = new WizardScreen(pages);
+  wizard.setChangeListener(wizardListener);
+
+    
+== EXAMPLES
+
+To see an example please launch BBWizardApplication (com.cleverua.bb.example) in BlackBerry device simulator.
+
