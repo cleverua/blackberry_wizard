@@ -10,7 +10,6 @@ This sample Blackberry application demonstrates an approach for Wizard Type Scre
 * public boolean isValid(); - perform the validation of the page and return result.
 * public void onPageValid(); - perform some actions if page is valid.
 * public void onPageInvalid(); - perform some actions if page is invalid. Show an error message, for example.  
-  
 
 === Pass the array of pages in Wizard Screen constructor. Each time Wizard appears on the scrren it shows the first page. 
 
